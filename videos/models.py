@@ -5,3 +5,6 @@ class Video(models.Model):
     description = models.TextField()
     thumbnail = models.ImageField(upload_to="videosa/thumbnails")
     source = models.FileField(upload_to="videosa")
+
+    def __str__(self):
+        return self.id + " - " + self.title
