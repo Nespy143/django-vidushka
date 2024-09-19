@@ -7,4 +7,4 @@ class Video(models.Model):
     source = models.FileField(upload_to="videosa")
 
     def __str__(self):
-        return self.id + " - " + self.title
+        return f"{self.id} - {self.title}"
