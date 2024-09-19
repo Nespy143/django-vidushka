@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Всё!</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+<body>
+    <h1>Смотрите всё!</h1>
+    <div class="wrapper">
+        <div class="video-list">
+            {% for video in videos %}
+            <div class="video-item">
+                <img src="{{video.thumbnail.url}}" alt="{{video.title}}">
+                <a href="/video/{{video.id}}">{{video.title}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'main/script.js' %}"></script>
+</body>
+</html>
