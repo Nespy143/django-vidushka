@@ -18,6 +18,9 @@
             {% endfor %}
         </div>
     </div>
+    {% if not request.user.is_anonymous %}
+        <a href="/logout">Выйти</a>
+    {% endif %}
     <script src="{% static 'main/script.js' %}"></script>
 </body>
 </html>
