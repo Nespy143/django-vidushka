@@ -3,12 +3,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <title>{{video.title}}</title>
+    <title>{{ video.title }}</title>
     <link rel="stylesheet" href="{% static 'main/style.css' %}">
 </head>
 <body>
-<img src="{{video.thumbnail.url}}" alt="{{video.title}}">
-<video src="{{video.source.url}}"></video>
+    <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}">
+    <video src="{{ video.source.url }}"></video>
+    <h2>Комментарии</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.text }} (от {{ comment.author }})</li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить комментарий</button>
+    </form>
 </body>
 </html>
